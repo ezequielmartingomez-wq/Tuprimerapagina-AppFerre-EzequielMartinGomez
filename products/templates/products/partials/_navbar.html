@@ -1,0 +1,28 @@
+{% load static %}
+<header>
+  <div class="container">
+    <nav class="nav">
+      <a href="{% url 'inicio' %}">Inicio</a>
+      {% comment %} <a href="{% url 'clientes' %}">Clientes</a>
+      <a href="{% url 'categorias' %}">Categorias</a>
+      <a href="{% url 'productos' %}">Productos</a>
+      <a href="{% url 'ventas' %}">Ventas</a> {% endcomment %}
+
+      <a href="#">Clientes</a>
+      <a class="btn" href="{% url 'categorias' %}">Categorias</a>
+      <a href="#">Productos</a>
+      <a href="#">Ventas</a>
+
+      {% if user.is_authenticated %}
+      <span>{{ user.username }}</span>
+      <a class="btn" href="{% url 'editar_perfil' %}">Perfil</a>
+      <a class="btn" href="{% url 'logout' %}">Logout</a>
+      {% else %}
+      {% comment %} <a class="btn" href="{% url 'login' %}">Login</a> {% endcomment %}
+      <a class="btn" href="#">Login</a>
+      {% comment %} <a class="btn btn-outline" href="{% url 'register' %}">Registro</a> {% endcomment %}
+      <a class="btn btn-outline" href="#">Registro</a>
+      {% endif %}
+    </nav>
+  </div>
+</header>

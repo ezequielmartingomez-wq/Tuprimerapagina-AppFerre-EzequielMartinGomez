@@ -1,0 +1,24 @@
+{# --- UNIDAD 11 - CODE --- #}
+{# Formulario de búsqueda de categorias - Búsqueda con Formularios #}
+
+{% extends "products/base.html" %}
+
+{% block title %}Buscar Categoria - AppFerre{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="form-page">
+    <div class="form-page__header">
+      <a href="{% url 'categorias' %}" class="form-page__back">← Volver a Categorias</a>
+      <h1>Buscar Categorias por subcategoria</h1>
+      <p class="text-muted">Ingresa el número de subcategoria para buscar Categorias.</p>
+    </div>
+    <div class="card">
+      <form method="get" action="{% url 'buscarCategoria' %}" class="form">
+        {{ form.as_p }}
+        <button type="submit" class="btn">Buscar</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

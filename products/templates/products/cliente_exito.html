@@ -1,0 +1,22 @@
+{# --- UNIDAD 11 - CODE --- #}
+{# Confirmación de cliente agregado - Formularios en Django #}
+
+{% extends "products/base.html" %}
+
+{% block title %}Cliente Agregada - AppFerre{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="card" style="max-width: 480px; margin-inline: auto; text-align: center;">
+    <div class="alert alert--success">
+      ¡El Cliente se ha agregado correctamente!
+    </div>
+    <p class="text-muted">Puedes agregar más clientes o buscar un cliente existente.</p>
+    <div class="flex flex-gap" style="justify-content: center; margin-top: 1.5rem;">
+      <a href="{% url 'ClienteFormulario' %}" class="btn">Agregar otro cliente</a>
+      <a href="{% url 'clientes' %}" class="btn btn--outline">Ver Clientes</a>
+      <a href="{% url 'buscarClientes' %}" class="btn btn--ghost">Buscar Clientes</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

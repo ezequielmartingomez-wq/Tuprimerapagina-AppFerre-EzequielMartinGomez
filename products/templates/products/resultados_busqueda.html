@@ -1,0 +1,35 @@
+{# --- UNIDAD 11 - CODE --- #}
+{# Resultados de búsqueda de cursos - Búsqueda con Formularios #}
+
+{% extends "products/base.html" %}
+
+{% block title %}Resultados de Búsqueda - AppFerre{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-header">
+    <h1 class="page-header__title">Resultados de Búsqueda</h1>
+    <a href="{% url 'buscarCategoria' %}" class="btn btn--outline">Nueva Búsqueda</a>
+  </div>
+  <div class="card">
+    {% if resultados %}
+      <div class="item-list">
+        {% for curso in resultados %}
+        <div class="item-list__row">
+          <div class="item-list__info">
+            <div class="item-list__name">{{ categoria.categoria }}</div>
+            <div class="item-list__meta">subcategoria: {{ categoria.subcategoria }}</div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p>No se encontraron resultados para la subcategoria especificada.</p>
+    {% endif %}
+  </div>
+  <p style="margin-top: 1.5rem;">
+    <a href="{% url 'buscarCategoria' %}" class="btn btn--ghost">Nueva Búsqueda</a>
+    <a href="{% url 'categorias' %}" class="btn btn--outline">Ir a Categorias</a>
+  </p>
+</div>
+{% endblock %}

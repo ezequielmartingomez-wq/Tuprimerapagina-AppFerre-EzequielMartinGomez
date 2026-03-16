@@ -1,0 +1,25 @@
+{# --- UNIDAD 11 - CODE --- #}
+{# Formulario para agregar producto - Formularios en Django #}
+
+{% extends "products/base.html" %}
+
+{% block title %}Agregar Producto - AppFerre{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="form-page">
+    <div class="form-page__header">
+      <a href="{% url 'productos' %}" class="form-page__back">← Volver a Productos</a>
+      <h1>Agregar Producto</h1>
+      <p class="text-muted">Completa el formulario para registrar un nuevo producto.</p>
+    </div>
+    <div class="card">
+      <form action="{% url 'ProductosFormulario' %}" method="post" class="form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn">Enviar</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
